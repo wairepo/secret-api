@@ -1,1 +1,3 @@
-dfgdgdf
+<?php
+
+namespace App\Http\Controllers
