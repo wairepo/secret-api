@@ -5,14 +5,14 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Validator;
-use App\Models\dataEntry;
+use \App\Models\DataEntry;
 
 class ObjectController extends Controller
 {
 
   public function list(Request $request)
   {
-    $entries = New dataEntry();
+    $entries = New DataEntry();
 
     $page = $request['page'] ?? 1;
     $limit = $request['limit'] ?? 1;
@@ -80,7 +80,7 @@ class ObjectController extends Controller
     if( !empty($arrEntries) ) {
       $keyArr = array_map(function ($ar) {return $ar['key_name'];}, $arrEntries);
 
-      $entries = New dataEntry();
+      $entries = New DataEntry();
 
       $entries->upsert($arrEntries, ['key_name'], ['value_name']);
 
@@ -100,7 +100,7 @@ class ObjectController extends Controller
       return response()->json([ "success" => false, "message" => "Search key is required." ]);
     }
 
-    $entries = New dataEntry();
+    $entries = New DataEntry();   
 
     $result = $entries->where("key_name", $key);
 
