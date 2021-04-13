@@ -27,4 +27,4 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a deploy script
-        run: bash .deploy.sh
+        run: bash deploy.sh
